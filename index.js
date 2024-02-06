@@ -11,12 +11,15 @@ const database = require("./Config/database");
 
 database(); // Ensure database connection is established
 
+// Middleware to parse JSON and urlencoded request bodies
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(user);
 app.use(routes);
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.listen(process.env.PORT || 3001, () => {
-  console.log("Example app listening on port 3000!");
+app.listen(8080, () => {
+  console.log("Example app listening on port 8080!");
 });
