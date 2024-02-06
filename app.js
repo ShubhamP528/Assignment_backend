@@ -14,6 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 // seeddb();
 app.use(user);
 app.use(routes);
-app.listen(8080, (port = 8080) => {
+
+app.listen(8080, (port = process.env.PORT || 3000) => {
   console.log(`Server is running on port ${port}`);
 });
