@@ -13,6 +13,10 @@ const {
   ratingGreaterThan,
 } = require("../Controller/product");
 
+router.get("/hii", (req, res) => {
+  console.log("done");
+});
+
 router.get("/products", requireAuth, getProduct);
 
 router.post("/product", requireAuth, addProduct);
