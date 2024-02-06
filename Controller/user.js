@@ -1,9 +1,14 @@
 const User = require("../Models/user");
 const jwt = require("jsonwebtoken");
-require("dotenv").config();
-
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 const createToken = (_id) => {
-  return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "3d" });
+  return jwt.sign(
+    { _id },
+    process.env.SECRET || "yguihkndeuiwkjsbnilwehsbdjnnc798082ohjbnm",
+    { expiresIn: "3d" }
+  );
 };
 
 // Login
